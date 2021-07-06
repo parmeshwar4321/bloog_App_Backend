@@ -1,7 +1,5 @@
 const mongoose=require('mongoose')
-
 const NewUserSchema=mongoose.Schema({
-
     firstname:{
         type:String,
         required:true
@@ -18,6 +16,7 @@ const NewUserSchema=mongoose.Schema({
         min:6
     },
     email:{
+        unique:true,
         type:String,
         required:true,
         min:6
@@ -32,4 +31,4 @@ const NewUserSchema=mongoose.Schema({
     timestamps:true
 });
 
-module.exports=mongoose.model('UserSchema',NewUserSchema);
+module.exports=mongoose.model('Blogger',NewUserSchema);

@@ -1,37 +1,12 @@
-const express=require('express')
+const {userPost,addPost,updatePost,deletePost}= require('../controllers/userpost')
+const router=require('express').Router();
 
-const post=require('../models/UserContent')
+router.get('/userPost', userPost)
 
-const router=express.Router();
+router.post('/addPost',addPost)
 
-router.get('/',async(req,res)=>{
+router.put('/updPost/:id',updatePost)
 
-    try
-    {
-        const userPost=await post.find()
-        res.send(userPost)
-    }
-    catch(err)
-    {
-        res.json({message:err})
-    }
-})
-
-router.post('/Addpost',async(req,res)=>{
-    
-    const NewPost=new post({
-        Post:req.body.Post,
-        clap:req.body.clap
-    })
-    try
-    {
-        const SavePost=await NewPost.save()
-        res.send(SavePost)
-    }
-    catch(err)
-    {
-        res.json({message:err})
-    }
-})
+router.delete('/delPost/:id',deletePost)
 
 module.exports=router

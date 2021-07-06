@@ -1,18 +1,22 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose')
 
-const Posts=mongoose.Schema(
+const Posts = mongoose.Schema(
     {
-        Post:{
-            type:String,
-            require:true,
+        title: {
+            type: String,
+            require: true
         },
-        clap:{
-            type:Number
+        description: {
+            type: String,
+            require: true,
+        },  
+        like: {
+            type: Number
         }
     },
     {
-        timestamps:true
+        timestamps: true
     }
 )
 
-module.exports=mongoose.model('UserPost',Posts)
+module.exports = mongoose.model('bloggerPost', Posts)

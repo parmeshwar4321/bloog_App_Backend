@@ -1,32 +1,27 @@
 //import dependencies
-const express=require('express')
+require('./db/db')
+const express = require('express')
+require('dotenv').config()
 
-const dotenv=require('dotenv')
+const passport = require('passport');
 
-const mongoose=require('mongoose')
 
-const bodyParser=require('body-parser')
+// const bodyParser=require('body-parser')      
 
-const cors=require('cors')
+const Port = process.env.PORT||2021
+const App = express();
 
-//Routes path
-const NewUser=require('./routes/User')
-const NewPost=require('./routes/UserPost')
-//Initilzation of App with all the required things
-dotenv.config();
+const NewUser = require('./routes/User')
+const NewPost = require('./routes/UserPost')
 
-const App=express();
-
-mongoose.connect(process.env.Connect_DB,{useNewUrlParser:true,useUnifiedTopology:true},()=>{
-    console.log("Database Successfully Connected!")
-})
-
-App.use(bodyParser.urlencoded({extended:true}))
+// App.use(passport.initialize());
 App.use(express.json())
-App.use(cors());
+    // App.use('/',require('./routes/User'))
+    // const cors=require('cors')
+    // App.use(bodyParser.urlencoded({extended:true}))
+    // App.use(cors());
 
-//Routing
-App.use('/User',NewUser);
-App.use('/UserPost',NewPost);
+App.use('/', NewUser);
+App.use('/', NewPost);
 
-App.listen(5000,()=>{console.log("Surver is Up and Running")})
+App.listen(Port, () => { console.log(`Server is running at ${Port}`); })
