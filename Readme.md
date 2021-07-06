@@ -25,5 +25,5 @@ in this blogg app you can also view,post,update and delete your bloggs
 you can also add description and lile on that bloggs.
 
 ## Learn more
-To learn about Node.js [Node documentation](https://nodejs.org/).
+To learn about Node.js [Node documentation](https://nodejs.dev/learn).
 
