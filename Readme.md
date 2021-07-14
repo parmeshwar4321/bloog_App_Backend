@@ -1,8 +1,16 @@
 # blogg-App-Backend
 
-This project  is about backend of simple blogg-app
+This project is about backend of simple blogg-app
+**installed dependencies**
+* express
+* nodemon
+* mongoose
+* bcrypt
+* body-parser
+* jwt
+* cors
 
-
+### basically in this project user can create his accound by singing up, he can post, update and delete his ***Bloggs***
 if you want to run this code .you have to clone this code in your local system 
 then run on following port.
 ### `npm start`
